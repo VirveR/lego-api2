@@ -21,6 +21,24 @@ header {
     text-shadow: 1px 1px 1px rgb(146, 128, 128);
 }
 
+@media (max-width: 1200px) {
+    header {
+        height: 230px;
+    }
+
+    #mainHeading {
+        font-size: 30pt;
+    }
+
+    .navBtn {
+        display: inline !important;
+        float: left;
+        width: 120px !important;
+        padding: 10px !important;
+        margin-right: 15px;
+    }
+}
+
 #welcome {
     margin: 0;
     padding: 0 5px;
@@ -41,10 +59,6 @@ footer {
 footer p {
     margin: 0;
     padding: 0;
-}
-
-nav {
-    background-color: white;
 }
 
 .navBtn {
