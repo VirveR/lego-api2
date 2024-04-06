@@ -1,0 +1,26 @@
+{{> header}}
+
+{{> navbar}}
+
+<main class="col-md-8">
+    
+    <h2>{{part.id}}: {{part.name}}</h2>
+
+    <div class="part row">
+        <img src="/images/{{part.id}}.jpg" alt="{{part.name}}" class="img-fluid col-md-4">
+        <div class="col-md-8">
+            <p><b>Number:</b> {{part.id}}</p>
+            <p><b>Name:</b> {{part.name}}</p>
+            <p><b>Released in:</b> {{part.year}}</p>
+            <p>Detailed inventory of different versions and colors for this part is going to be found here.</p>
+        </div>
+    </div>
+    <button class="moreBtn" onclick="window.location.href='/parts'">Back to Parts</button>
+    
+</main>
+
+<aside class="col-md-2">
+    sidebar stuff goes here
+</aside>
+
+{{> footer}}

@@ -36,10 +36,10 @@ app.get('/parts/:id', (req, res) => {
     const partId = Number(req.params.id);
     const part = parts.find(part => part.id === partId);
     if (part) {
-        res.status(200).json(part);
+        res.render('details', { title: partId, part: part });
     }
     else {
-        res.status(404).json({ msg: `Part ${partId} was not found` });
+        res.render('error', {title: 404});
     }
 });
 
@@ -88,7 +88,7 @@ app.patch('/parts/:id', (req, res) => {
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
-    res.status(404).send('Page not found');
+    res.render('error', {title: 404});
 })
 
 const PORT = process.env.PORT || 5000;

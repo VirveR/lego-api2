@@ -1,12 +1,27 @@
-<h2>Parts</h2>
+{{> header}}
 
-<div>
+{{> navbar}}
+
+<main class="col-md-8">
+    
+    <h2>Parts</h2>
+    <p>Showing all available parts.</p>
     {{#each parts}}
-        <div class="part">
-            <img src="images/3001.jpg">
-            {{this.id}}<br>
-            {{this.name}}<br>
-            {{this.year}}<br><br>
+        <div class="part row">
+            <img src="images/{{this.id}}.jpg" class="col-md-4 img-fluid smallImg">
+            <div class="col-md-8">
+                <h3>{{this.name}}, {{this.id}}</h3>
+                <p>Produced: {{this.year}} - now</p>
+                <button class="moreBtn" onclick="window.location = 'parts/{{this.id}}'">View inventory</button>
+            </div>
         </div>
     {{/each}}
-</div>
+
+</main>
+
+<aside class="col-md-2">
+    <h3>Search</h3>
+    Coming soon...
+</aside>
+
+{{> footer}}

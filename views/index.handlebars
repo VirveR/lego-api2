@@ -1,1 +1,24 @@
-<a href="parts">Check all the parts</a>
+{{> header}}
+
+{{> navbar}}
+
+<main class="col-md-8">
+    <h2>About this project</h2>
+
+    <p>This is a project I'm doing to learn backend web development with Node.js and Express.
+        This page and the Parts page are rendered using Handlebars. This site is for testing my RESTful
+        API for doing CRUD actions on the parts. The parts information exists in a Javascript array only.
+        MongoDB is going to be applied later.
+    </p> 
+    <p>You can view the original Forever Bricks design I made for a UI/UX design course a year ago on 
+        <a href="https://www.behance.net/gallery/170733361/Forever-Bricks"> Behance gallery entry of Forever Bricks</a>.
+    </p>
+    <img src="images/figma.png" alt="Forever Bricks frontpage design on Figma" class="img-fluid">
+
+</main>
+
+<aside class="col-md-2">
+    sidebar stuff goes here
+</aside>
+
+{{> footer}}
