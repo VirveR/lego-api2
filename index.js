@@ -14,11 +14,11 @@ app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 let parts = [
-    { id: 3001, name: 'Brick 2x4', year: 1949 },
-    { id: 3002, name: 'Brick 2x3', year: 1951 },
-    { id: 3003, name: 'Brick 2x2', year: 1949 },
-    { id: 3004, name: 'Brick 1x2', year: 1952 },
-    { id: 3005, name: 'Brick 1x1', year: 1954 }
+    { id: 3001, name: 'Brick 2x4', year: 1949, versions: [1949, 1958, 1968, 1974, 1975, 1980, 1986] },
+    { id: 3002, name: 'Brick 2x3', year: 1951, versions: [1949, 1958, 1975, 1986] },
+    { id: 3003, name: 'Brick 2x2', year: 1949, versions: [1949, 1958, 1975, 1986] },
+    { id: 3004, name: 'Brick 1x2', year: 1952, versions: [1949, 1968, 1975, 1980, 1986] },
+    { id: 3005, name: 'Brick 1x1', year: 1954, versions: [1949, 1968, 1975, 1980] }
 ]
 
 // Home
@@ -64,7 +64,7 @@ app.post('/parts', (req, res) => {
         res.status(400).json({ msg: `Part ${partId} already exists`});
     }
     else {
-        const newPart = { id: partId, name: req.body.name, year: req.body.year };
+        const newPart = { id: partId, name: req.body.name, year: req.body.year, versions: req.body.versions };
         parts.push(newPart);
         res.location('http://localhost:5000/api/parts/'+partId);
         res.status(201).json(newPart);
@@ -78,6 +78,7 @@ app.patch('/parts/:id', (req, res) => {
     if (part) {
         part.name = req.body.name;
         part.year = req.body.year;
+        part.versions = req.body.versions;
         res.status(200).json(part);
     }
     else {

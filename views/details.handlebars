@@ -12,7 +12,13 @@
             <p><b>Number:</b> {{part.id}}</p>
             <p><b>Name:</b> {{part.name}}</p>
             <p><b>Released in:</b> {{part.year}}</p>
-            <p>Detailed inventory of different versions and colors for this part is going to be found here.</p>
+            <p><b>Versions:</b>
+                <ul>
+                    {{#each part.versions}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </p>
         </div>
     </div>
     <button class="moreBtn" onclick="window.location.href='/parts'">Back to Parts</button>
